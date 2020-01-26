@@ -25,5 +25,5 @@ sk = mcl.Fr()
 sk.set_by_CSPRNG()
 print(sk)
 ```
-## Licence
-[LICENCE](https://github.com/Fadion96/mcl-python/blob/master/LICENSE)
+## License
+[LICENSE](https://github.com/Fadion96/mcl-python/blob/master/LICENSE)
