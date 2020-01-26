@@ -1,8 +1,6 @@
 import unittest
 
-from mcl.curve_type import CurveType
-from mcl.mcl import mcl_init
-from mcl.fr import Fr
+from mcl import mcl_init, Fr, CurveType
 
 class FrTests(unittest.TestCase):
     def setUp(self):

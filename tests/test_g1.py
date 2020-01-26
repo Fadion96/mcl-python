@@ -1,9 +1,6 @@
 import unittest
 
-from mcl.curve_type import CurveType
-from mcl.mcl import mcl_init
-from mcl.g1 import G1
-from mcl.fr import Fr
+from mcl import mcl_init, Fr, CurveType, G1
 
 class G1Tests(unittest.TestCase):
     def setUp(self):
