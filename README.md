@@ -19,7 +19,7 @@ export MCL_PATH=<path_to_mcl>
 ```python
 import mcl
 
-mcl.mcl_init(mcl.CurveType.MCL_BLS12_381))
+mcl.mcl_init(mcl.CurveType.MCL_BLS12_381)
 
 sk = mcl.Fr()
 sk.set_by_CSPRNG()
