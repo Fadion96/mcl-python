@@ -12,7 +12,6 @@ class FrTests(unittest.TestCase):
 
     def testSub(self):
         self.assertEqual(Fr(20) - Fr(10), Fr(10))
-        Fr() - Fr()
 
     def testMul(self):
         self.assertEqual(Fr(20) * Fr(10), Fr(200))
