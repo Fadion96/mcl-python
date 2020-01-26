@@ -16,7 +16,7 @@ And set mcl installation dir to `MCL_PATH` environment variable
 export MCL_PATH=<path_to_mcl>
 ```
 ## Usage
-```
+```python
 import mcl
 
 mcl.mcl_init(mcl.CurveType.MCL_BLS12_381))
