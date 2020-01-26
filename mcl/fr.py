@@ -1,5 +1,6 @@
 from __future__ import annotations
-from .mcl import FR_SIZE, mcl
+from .lib import mcl
+from .consts import FR_SIZE
 from typing import Optional
 import ctypes
 
