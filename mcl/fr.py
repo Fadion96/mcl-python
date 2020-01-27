@@ -76,3 +76,51 @@ class Fr(ctypes.Structure):
 
     def set_by_CSPRNG(self) -> None:
         mcl.mclBnFr_setByCSPRNG(ctypes.byref(self.v))
+
+    def clear(self) -> None:
+        mcl.mclBnFr_clear(ctypes.byref(self.v))
+
+    def inv(self) -> Fr:
+        ret = Fr()
+        mcl.mclBnFr_inv(ctypes.byref(ret.v), ctypes.byref(self.v))
+        return ret
+
+    def is_negative(self) -> bool:
+        return mcl.mclBnFr_isNegative(ctypes.byref(self.v)) != 0
+
+    def is_odd(self) -> bool:
+        return mcl.mclBnFr_isOdd(ctypes.byref(self.v)) != 0
+    
+    def is_valid(self) -> bool:
+        return mcl.mclBnFr_isValid(ctypes.byref(self.v)) != 0
+
+    def serialize(self) -> bytes:
+        buf_len = 1024
+        buf = ctypes.create_string_buffer(buf_len)
+        size = mcl.mclBnFr_serialize(buf, len(buf), ctypes.byref(self.v), 10)
+        return buf[:size]
+
+    @staticmethod
+    def deserialize(buf: bytes) -> Fr:
+        buffer = ctypes.create_string_buffer(buf)
+        ret = Fr()
+        mcl.mclBnFr_deserialize(ctypes.byref(ret.v), buffer, len(buf), 10)
+        return ret
+    
+    def sqr(self) -> Fr:
+        ret = Fr()
+        mcl.mclBnFr_sqr(ctypes.byref(ret.v), ctypes.byref(self.v))
+        return ret
+    
+    def neg(self) -> Fr:
+        ret = Fr()
+        mcl.mclBnFr_neg(ctypes.byref(ret.v), ctypes.byref(self.v))
+        return ret
+
+    def square_root(self) -> Fr:
+        ret = Fr()
+        success = mcl.mclBnFr_squareRoot(ctypes.byref(ret.v), ctypes.byref(self.v))
+        if success == 0:
+            return ret
+        else:
+            raise RuntimeError(f'Square root doesnt exist')
