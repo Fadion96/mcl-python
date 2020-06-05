@@ -7,9 +7,15 @@ For now `mcl-python` supports Linux only.
 ### Requirements
 - Preinstalled [mcl](https://www.google.com) library
 ### How to install
-To install mcl-python use package manager [pip](https://pip.pypa.io/en/stable/)
+<!-- To install mcl-python use package manager [pip](https://pip.pypa.io/en/stable/)
 ```
-pip install mcl-python
+pip install mcl-python 
+``` -->
+To install mcl-python clone this repository and use `setup.py` script
+```
+git clone https://github.com/Fadion96/mcl-python.git
+cd mcl-python
+python3 setup.py install 
 ```
 And set mcl installation dir to `MCL_PATH` environment variable
 ```
