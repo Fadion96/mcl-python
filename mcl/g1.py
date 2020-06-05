@@ -25,6 +25,8 @@ class G1(ctypes.Structure):
     def __str__(self) -> str:
         return self.getStr()
 
+    __repr__ =__str__
+
     def neg(self) -> G1:
         ret = G1()
         mcl.mclBnG1_neg(ctypes.byref(ret.v), ctypes.byref(self.v))

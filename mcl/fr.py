@@ -30,6 +30,8 @@ class Fr(ctypes.Structure):
     def __str__(self) -> str:
         return self.getStr()
 
+    __repr__ =__str__
+
     def add(self, rhs: Fr) -> Fr:
         ret = Fr()
         mcl.mclBnFr_add(ctypes.byref(ret.v), ctypes.byref(self.v), ctypes.byref(rhs.v))
@@ -76,6 +78,13 @@ class Fr(ctypes.Structure):
 
     def set_by_CSPRNG(self) -> None:
         mcl.mclBnFr_setByCSPRNG(ctypes.byref(self.v))
+
+    @staticmethod
+    def set_hash_of(value) -> Fr:
+        ret = Fr()
+        buf = ctypes.create_string_buffer(value.encode())
+        mcl.mclBnFr_setHashOf(ctypes.byref(ret.v), buf, len(buf))
+        return ret
 
     def clear(self) -> None:
         mcl.mclBnFr_clear(ctypes.byref(self.v))
